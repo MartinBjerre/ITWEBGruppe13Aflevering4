@@ -22,8 +22,8 @@ export class WorkoutComponent implements OnInit {
   // https://angular.io/tutorial/toh-pt6#add-the-ability-to-add-heroes  Add the ability to add heroes afsnit. kan være den skal laves om til update.
   createWorkout(workoutName: string, workoutDescription: string) {
     const obj = {'WorkoutName': workoutName, 'WorkoutDescription': workoutDescription, 'exercise': []};
-    this.workoutService.createWorkoutService(this.userId, obj); //.then (Workouts => this.Workouts =  Workouts);
-     //this.getWorkout(); //how to fix this, delay in updating the workout.
+    this.workoutService.createWorkoutService(this.userId, obj);
+    this.getWorkout();
   }
 
   getWorkout() {
