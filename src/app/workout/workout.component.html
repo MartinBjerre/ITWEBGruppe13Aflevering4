@@ -1,0 +1,20 @@
+<div style="text-align:center">
+  <h1>
+    Workout
+  </h1>
+
+  </div>
+<div style="text-align:center">
+  <label>Workout Name:</label> <input #WorkoutName />
+  <label>Description</label> <input #WorkoutDescription />
+  <button (click)="createWorkout(WorkoutName.value,WorkoutDescription.value);WorkoutName.value=''">
+    Add
+  </button>
+</div>
+<div class = "UserShow" style="text-align:center">
+  <li *ngFor="let obj of Workouts">
+    <span> {{obj.WorkoutName}} </span>
+    <span> {{obj.WorkoutDescription}}</span>
+    <button (click)="InsertExercise(obj._id)"> Add Exercise</button>
+  </li>
+</div>

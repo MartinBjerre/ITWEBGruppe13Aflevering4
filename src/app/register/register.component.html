@@ -1,0 +1,11 @@
+<p>
+  register works!
+</p>
+<div style="text-align:center">
+  <label>User name:</label> <input #UserName />
+  <label>User Password:</label><input #UserPassword/>
+
+<button (click)="RegisterUser(UserName.value, UserPassword.value); UserName.value=''">
+  Register
+</button>
+</div>

@@ -1,0 +1,27 @@
+<div style="text-align: right">
+  <button (click)="LogInUser()">
+    Log in
+  </button>
+  <button (click)="RegisterUser()">
+    Register
+  </button>
+  <button (click)="LogOutUser()">
+    Log Out
+  </button>
+</div>
+<div style="text-align:center">
+  <h1>
+    Users
+  </h1>
+</div>
+
+<div class = "UserShow" style="text-align:center">
+  <li *ngFor="let obj of user">
+    <span> {{obj.UserName}} </span>
+    <button (click)="InsertWorkout(obj._id)"> Add Workout</button>
+  </li>
+</div>
+
+
+
+

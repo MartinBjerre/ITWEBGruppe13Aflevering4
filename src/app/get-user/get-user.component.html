@@ -1,0 +1,7 @@
+
+<div class = "UserShow" style="text-align:center">
+  <li *ngFor="let obj of User">
+    <span> {{obj.UserName}} </span>
+    <button (click)="InsertWorkout(obj._id)"> Add Workout</button>
+  </li>
+</div>

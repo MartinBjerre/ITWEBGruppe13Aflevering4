@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app_api",
+    "\\app_api\\controllers",
+    "\\app_api\\modules",
+    "\\app_api\\routes",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\exercise",
+    "\\src\\app\\user"
+  ],
+  "SelectedNode": "\\package.json",
+  "PreviewInSolutionExplorer": false
+}

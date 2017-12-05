@@ -1,0 +1,25 @@
+<div style="text-align:center">
+  <h1>
+    Exercises
+  </h1>
+
+</div>
+<div style="text-align:center">
+  <label>Exercise name:</label> <input #ExerciseName />
+  <label>Exercise description:</label> <input #ExerciseDescription />
+  <label>Exercise sets:</label> <input #ExerciseSets />
+  <label>Exercise repstime:</label> <input #ExerciseRepstime />
+  <button (click)="createExercise(ExerciseName.value,ExerciseDescription.value,ExerciseSets.value,ExerciseRepstime.value);ExerciseName.value=''">
+    Add
+  </button>
+</div>
+
+<div class = "UserShow" style="text-align:center">
+  <li *ngFor="let obj of Exercises">
+    <span> {{obj.ExerciseName}} </span>
+    <span> {{obj.ExerciseDescription}} </span>
+    <span> {{obj.ExerciseSets}} </span>
+    <span> {{obj.ExerciseRepstime}} </span>
+  </li>
+</div>
+
