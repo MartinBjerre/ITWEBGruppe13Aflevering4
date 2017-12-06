@@ -29,7 +29,6 @@ export class UserService {
   }
 
   createUser(userName: string): Promise<User> {
-      console.log(userName);
       return this.http.post(this.url + '/CreateUser', JSON.stringify({UserName: userName, workouts: []}), { headers: this.headers })
       .toPromise()
       .catch(this.handleError);

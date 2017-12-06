@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {User} from './models/user';
 
 @Injectable()
 export class AuthorazationService {
@@ -25,4 +26,16 @@ export class AuthorazationService {
       return false;
     }
   }
+ /* public currentUser(): User {
+    if (this.TjekLogin()) {
+      const token = this.getToken();
+      const payload = JSON.parse(window.atob(token.split('.')[1]));
+      const user = new User();
+      user.UserName = payload.UserName;
+      user._id = payload._id;
+      return user;
+    } else {
+      return;
+    }
+  } */
 }
