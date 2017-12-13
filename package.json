@@ -2,6 +2,7 @@
   "name": "fitnessapp",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "app.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -16,6 +17,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "1.6.0",
     "@angular/animations": "^4.2.4",
     "@angular/common": "^4.2.4",
     "@angular/compiler": "^4.2.4",
