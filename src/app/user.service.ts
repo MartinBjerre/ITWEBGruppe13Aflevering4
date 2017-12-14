@@ -7,13 +7,13 @@ import {User} from './models/user';
 
 @Injectable()
 export class UserService {
-  private url  = 'http://localhost:3000/api/user';
+  private url  = 'http://localhost:3000/api';
   private headers = new Headers({'Content-Type': 'application/json'});
   constructor(private http: Http, private  auth: AuthorazationService) { }
 
   getUser(): Promise<any[]> {
     console.log(this.auth.getToken());
-      return this.http.get(`${this.url}`)
+      return this.http.get(`${this.url}/user`)
       .toPromise()
       .then(response => response.json() as User[])
       .catch(this.handleError);
@@ -21,7 +21,7 @@ export class UserService {
 
   Login(userName: string, password: string) {
     console.log(password);
-    return this.http.post('http://localhost:3000/api/login', JSON.stringify({name: userName, password: password}),
+    return this.http.post('`${this.url}/login', JSON.stringify({name: userName, password: password}),
       { headers: this.headers })
       .toPromise()
       .then(response => (this.auth.saveToken(response.json().token)))
@@ -29,13 +29,13 @@ export class UserService {
   }
 
   createUser(userName: string): Promise<User> {
-      return this.http.post(this.url + '/CreateUser', JSON.stringify({UserName: userName, workouts: []}), { headers: this.headers })
+      return this.http.post(this.url + 'user/CreateUser', JSON.stringify({UserName: userName, workouts: []}), { headers: this.headers })
       .toPromise()
       .catch(this.handleError);
   }
 
   register(userName: string, password: string) {
-    return this.http.post('http://localhost:3000/api/register', JSON.stringify({name: userName, password: password}),
+    return this.http.post('`${this.url}/register', JSON.stringify({name: userName, password: password}),
       { headers: this.headers })
       .toPromise()
       .then(response => this.auth.saveToken(response.json().token))
