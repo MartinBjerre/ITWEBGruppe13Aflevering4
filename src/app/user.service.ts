@@ -35,7 +35,7 @@ export class UserService {
   }
 
   register(userName: string, password: string) {
-    return this.http.post('`${this.url}/register', JSON.stringify({name: userName, password: password}),
+    return this.http.post('${this.url}/register', JSON.stringify({name: userName, password: password}),
       { headers: this.headers })
       .toPromise()
       .then(response => this.auth.saveToken(response.json().token))
