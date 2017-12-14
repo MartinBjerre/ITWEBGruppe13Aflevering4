@@ -13,7 +13,7 @@ export class UserService {
 
   getUser(): Promise<any[]> {
     console.log(this.auth.getToken());
-      return this.http.get(`${this.url}/user`)
+      return this.http.get(this.url+ '/user')
       .toPromise()
       .then(response => response.json() as User[])
       .catch(this.handleError);

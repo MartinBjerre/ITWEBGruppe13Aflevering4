@@ -20,7 +20,7 @@ export class ExerciseService {
   }
 
   createExercise(UserId: string, workoutId: string, obj): Promise<Exercise[]> {
-    return this.http.post(this.url + 'user/' + UserId + '/workout/' + workoutId +'/exercise/CreateExercise',
+    return this.http.post(this.url + 'user/' + UserId + '/workout/' + workoutId + '/exercise/CreateExercise',
       obj, {headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.auth.getToken())})
       .toPromise()
       .then (response => response as Exercise[])
