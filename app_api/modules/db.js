@@ -22,4 +22,3 @@ mongoose.connection.on('disconnected', function () {
 require('./exercise');
 require('./workout');
 require('./user');
-

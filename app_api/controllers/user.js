@@ -1,7 +1,20 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('user');
 
+const _buildUser = function(req, res, results) {
+    let user = [];
+    results.forEach((doc) => {
+        user.push({
+            _id: doc._id,
+            UserName: doc.name,
+            workout: doc.workout
+        });
+    });
+    return user;
+};
+
 module.exports.CreateUser = function (req,res) {
+    let users = [];
     User.create({
             name: req.body.UserName},
         (err, user) => {
@@ -14,7 +27,8 @@ module.exports.CreateUser = function (req,res) {
                             sendJsonResponse(res, 404 ,{"error": "user not found"});
                         }
                         else {
-                            sendJsonResponse(res, 200 , user);
+                            users = _buildUser(req, res, user);
+                            sendJsonResponse(res, 200 , users);
                         }
                     });
             }
@@ -28,7 +42,8 @@ module.exports.ShowAllUser = function (req,res) {
                 sendJsonResponse(res, 404 ,{"error": "user not found"});
             }
             else {
-                sendJsonResponse(res, 200 ,user);
+                users = _buildUser(req, res, user);
+                sendJsonResponse(res, 200 ,users);
             }
         });
 };
