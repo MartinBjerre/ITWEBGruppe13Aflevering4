@@ -9,7 +9,7 @@ import {AuthorazationService} from './authorazation.service';
 @Injectable()
 export class WorkoutService {
 
-  private url = 'http://localhost:3000/api/';
+  private url = '/api/';
 
   constructor(private http: HttpClient, private  auth: AuthorazationService) {
   }

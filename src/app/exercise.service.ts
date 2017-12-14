@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ExerciseService {
 
-  private url = 'http://localhost:3000/api/';
+  private url = '/api/'; //http://localhost:3000/api/
 
 
   constructor(private http: HttpClient, private auth: AuthorazationService) {
