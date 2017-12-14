@@ -13,14 +13,14 @@ export class ExerciseService {
   constructor(private http: HttpClient, private auth: AuthorazationService) {
   }
   getExercise(userId: string, workoutId: string): Promise<Exercise[]> {
-    return this.http.get(this.url + 'user/' + `${userId}/workout/${workoutId}/exercise`)
+    return this.http.get(this.url + 'user/' + userId + '/workout/' + workoutId + '/exercise')
       .toPromise()
       .then(response => response as Exercise[])
       .catch(this.handleError);
   }
 
   createExercise(UserId: string, workoutId: string, obj): Promise<Exercise[]> {
-    return this.http.post(this.url + 'user/' + `${UserId}/workout/${workoutId}/exercise/CreateExercise`,
+    return this.http.post(this.url + 'user/' + UserId + '/workout/' + workoutId +'/exercise/CreateExercise',
       obj, {headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.auth.getToken())})
       .toPromise()
       .then (response => response as Exercise[])

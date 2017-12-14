@@ -15,14 +15,14 @@ export class WorkoutService {
   }
 
   getWorkout(userId: string): Promise<Workout[]> {
-    return this.http.get(this.url + 'user/' + `${userId}/workout`)
+    return this.http.get(this.url + 'user/' + userId + '/workout')
       .toPromise()
       .then(response => response as Workout[])
       .catch(this.handleError);
   }
 
   public createWorkoutService(userId: string, obj): Promise<Workout[]> {
-    return this.http.post(this.url + 'user/' + `${userId}/workout/CreateWorkout`, obj
+    return this.http.post(this.url + 'user/' + userId + '/workout/CreateWorkout', obj
       , {headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.auth.getToken())})
       .toPromise()
       .then(response => response as Workout[])
