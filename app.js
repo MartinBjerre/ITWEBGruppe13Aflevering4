@@ -4,7 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var dotEnv = require('dotenv').load();
+const passport = require('passport');
 require('./app_api/modules/db');
+require('./app_api/config/passport');
+
 
 var routesApi = require('./app_api/routes/index');
 
