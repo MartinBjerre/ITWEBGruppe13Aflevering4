@@ -31,7 +31,8 @@ app.use('/api', function (req, res, next) {
 app.use('/api', routesApi);
 
 app.get('*', (req, res) => {
-	res.sendFile(path.join(_dirname, 'dist/index.html'));
+  console.log("dist/index file");
+	return res.sendFile(path.join(_dirname, 'dist/index.html'));
 });
 
 // catch 404 and forward to error handler
@@ -49,7 +50,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  //res.render('error');
 });
 
 module.exports = app;

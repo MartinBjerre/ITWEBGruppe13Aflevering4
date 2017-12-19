@@ -45,16 +45,18 @@ module.exports.CreateWorkout = function (req,res) {
 
 module.exports.ShowAll = function (req,res) {
     let workouts = [];
+    console.log("showall line 48 workout");
     User.findById(req.params.userId)
         .populate('workout')
         .exec((err, User) => {
             if('error',err ){
-                sendJsonResponse(res, 200, 'error');
+                sendJsonResponse(res, 404, 'error');
             }
             else {
                 if (User != null) {
-                    console.log("testString");
+                    console.log(User.workout);
                     //workouts = _buildWorkout(req, res, User.workout);
+
                     sendJsonResponse(res, 200, User.workout);
                 } else {
                     sendJsonResponse(res, 404, 'error');
